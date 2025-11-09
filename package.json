@@ -1,0 +1,14 @@
+{
+  "name": "osint-spark-login",
+  "version": "1.0.0",
+  "description": "OSINT SPARK Secure Login Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.18.2"
+  }
+}
