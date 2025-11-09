@@ -1,24 +1,18 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const path = require('path'); // Static फ़ाइलों के लिए path मॉड्यूल ज़रूरी
+const path = require('path'); 
 const app = express();
 
-// Vercel deployment के लिए Dynamic Port सेट करें
 const PORT = process.env.PORT || 3000;
 
 // Middleware: Form डेटा (req.body) को प्रोसेस करने के लिए
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// --- 💡 CSS और Static Files के लिए Fix 💡 ---
-// यह सुनिश्चित करता है कि सर्वर style.css को सही ढंग से ढूंढता है
-app.use(express.static(path.join(__dirname))); 
+// --- 🛑 यह लाइन हटा दी गई है क्योंकि अब vercel.json CSS को हैंडल करेगा 🛑 ---
+// app.use(express.static(path.join(__dirname))); 
 
 // --- 🔒 आपकी पासवर्ड लिस्ट (सुरक्षित हैश) 🔒 ---
-// इन हैश को bcrypt.hash('SPARK011', 10) आदि से जनरेट किया गया है।
-// Full Name में आपको यही वैल्यू डालनी है (e.g., SPARK011)। 
-// कोड इसे लोअरकेस करके चेक करता है।
-
 const usersDatabase = {
     // Passwords: SPARK011, SPARK768, SPARKOP01, CODERS084
     'spark011': '$2b$10$wT0X5QZqX3s.4D7y8C9hO.5wY4i8N5qG7d6c2R1u9vA2g3k4l5m6n7p', 
@@ -29,6 +23,8 @@ const usersDatabase = {
 
 // (1) होमपेज: index.html सर्व करें
 app.get('/', (req, res) => {
+    // Vercel.json के कारण यह राउट अब सिर्फ API लॉजिक के लिए है, 
+    // होमपेज राउटिंग vercel.json द्वारा संभाला जाएगा, लेकिन हम इसे API fallback के लिए रखते हैं।
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
@@ -36,7 +32,6 @@ app.get('/', (req, res) => {
 app.post('/login', async (req, res) => {
     const { full_name, password } = req.body;
     
-    // इनपुट को लोअरकेस में बदलें ताकि यह usersDatabase से मैच हो
     const usernameKey = full_name.toLowerCase(); 
     const userHash = usersDatabase[usernameKey]; 
 
@@ -52,7 +47,6 @@ app.post('/login', async (req, res) => {
     }
 
     try {
-        // bcrypt: इनपुट पासवर्ड को स्टोर किए गए हैश से मिलाएं
         const isMatch = await bcrypt.compare(password, userHash);
 
         if (isMatch) {
@@ -65,7 +59,7 @@ app.post('/login', async (req, res) => {
                 </div>
             `);
         } else {
-            // पासवर्ड गलत है (सुरक्षा के लिए, हम वही मैसेज देंगे)
+            // पासवर्ड गलत है
             res.status(401).send(`
                 <div style="background: #111; color: #FFF; padding: 20px; border: 2px solid #FF00FF;">
                     <h1 style="color: #FF00FF;">Login Failed!</h1>
@@ -80,7 +74,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// सर्वर शुरू करें
+// सर्वर शुरू करें (यह Vercel पर डिप्लॉयमेंट के लिए सिर्फ एक एंट्री पॉइंट है)
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
