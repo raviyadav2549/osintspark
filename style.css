@@ -1,269 +1,135 @@
 /* Global Reset and Body Styling */
-
 body {
-
     font-family: 'Arial', sans-serif;
-
     margin: 0;
-
     padding: 0;
-
     /* Dark Background with a subtle pattern/gradient for tech feel */
-
     background: #000000;
-
     background-image: radial-gradient(circle at center, #0a0a0f 0%, #000000 100%);
-
     color: #E0E0E0; /* Light text color */
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     min-height: 100vh;
-
 }
-
-
 
 /* Main Container for the Login Box */
-
 .login-container {
-
     background: rgba(10, 10, 20, 0.8); /* Semi-transparent dark background */
-
     backdrop-filter: blur(5px); /* Optional blur effect */
-
     padding: 40px 30px;
-
     border-radius: 15px;
-
     box-shadow: 0 0 40px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3); /* Neon glow effect */
-
     width: 350px;
-
     text-align: center;
-
     border: 1px solid #00FFFF; /* Neon border */
-
 }
-
-
 
 /* Logo/Title Styling */
-
 .logo {
-
     color: #00FFFF; /* Neon Blue */
-
     font-size: 1.8em;
-
     margin-bottom: 30px;
-
     letter-spacing: 2px;
-
     text-shadow: 0 0 10px #00FFFF;
-
 }
-
-
 
 /* Input Field Styling */
-
 .input-group {
-
     margin-bottom: 20px;
-
 }
-
-
 
 .input-group input {
-
     width: 100%;
-
     padding: 12px;
-
     border: 2px solid #333;
-
     border-radius: 8px;
-
     background: #1A1A2E; /* Dark input background */
-
     color: #E0E0E0;
-
     font-size: 1em;
-
     box-sizing: border-box; /* Includes padding in the element's total width and height */
-
     transition: border-color 0.3s, box-shadow 0.3s;
-
 }
-
-
 
 .input-group input:focus {
-
     border-color: #FF00FF; /* Magenta focus glow */
-
     outline: none;
-
     box-shadow: 0 0 8px rgba(255, 0, 255, 0.5);
-
 }
-
-
 
 /* Password Hint Styling */
-
 .password-hint {
-
     color: #AAAAAA;
-
     font-size: 0.85em;
-
     margin-top: -10px;
-
     margin-bottom: 25px;
-
     text-align: left;
-
 }
-
-
 
 /* Button Base Styling */
-
 .btn {
-
     display: block;
-
     width: 100%;
-
     padding: 12px;
-
     border: none;
-
     border-radius: 8px;
-
     font-size: 1em;
-
     font-weight: bold;
-
     text-decoration: none;
-
     margin-top: 15px;
-
     cursor: pointer;
-
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-
 }
-
-
 
 /* Login Button (Magenta/Pink) */
-
 .login-btn {
-
     background-image: linear-gradient(45deg, #FF00FF, #FF66CC); /* Magenta Gradient */
-
     color: white;
-
 }
-
-
 
 .login-btn:hover {
-
     background-image: linear-gradient(45deg, #FF66CC, #FF00FF);
-
     transform: translateY(-2px);
-
     box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
-
 }
-
-
 
 /* Join Telegram Button (Blue) */
-
 .telegram-btn {
-
     background-image: linear-gradient(45deg, #00FFFF, #00BFFF); /* Neon Blue Gradient */
-
     color: #000000; /* Dark text for contrast */
-
 }
-
-
 
 .telegram-btn:hover {
-
     background-image: linear-gradient(45deg, #00BFFF, #00FFFF);
-
     transform: translateY(-2px);
-
     box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
-
 }
-
-
 
 /* Footer Links Section */
-
 .footer-links {
-
     margin-top: 30px;
-
     padding-top: 20px;
-
     border-top: 1px solid #333;
-
     font-size: 0.9em;
-
 }
-
-
 
 .developer {
-
     color: #AAAAAA;
-
     margin-bottom: 10px;
-
 }
-
-
 
 .contact-links a {
-
     color: #00FFFF; /* Neon Blue for clickable links */
-
     text-decoration: none;
-
     transition: color 0.3s;
-
 }
-
-
 
 .contact-links a:hover {
-
     color: #FF00FF; /* Magenta on hover */
-
     text-decoration: underline;
-
 }
 
-
-
 .contact-links span {
-
     margin: 0 8px;
-
     color: #555;
-
-} 
+}
