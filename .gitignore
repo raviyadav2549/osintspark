@@ -1,2 +1,4 @@
+# Ignore Node modules and temporary files
 /node_modules
+npm-debug.log
 .env
